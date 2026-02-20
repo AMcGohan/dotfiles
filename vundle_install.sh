@@ -3,7 +3,8 @@ cp ./vim-config/.vimrc $HOME/.vimrc
 
 echo "Checking Vundle"
 
-# https://sentry.io/answers/determine-whether-a-file-exists-or-not-in-bash/
+# https://linuxize.com/post/bash-check-if-file-exists/
+
 
 VundleDIR=~/.vim/bundle/Vundle.vim
 if [ -d $VundleDIR ]; then
@@ -16,7 +17,9 @@ fi
 echo "Installing vim plugin dependencies..."
 
 vim +PluginInstall +qall
+
 # https://github.com/ycm-core/YouCompleteMe?tab=readme-ov-file#linux-64-bit
+
 sudo apt install build-essential cmake vim-nox python3-dev -y
 sudo apt install mono-complete golang nodejs default-jdk npm -y
 
