@@ -12,7 +12,7 @@ if [[ -z $(which apt) ]]; then
 	exit
 fi
 # Prompt user of what will be installed, user can press 'y' to proceed or 'n' to exit
-read -p $'This script will install the following packages:\n* Singularity\n* build-essential\n* libssl-dev\n* uuid-dev\n* libgpgme11-dev\n* squashfs-tools\n* libseccomp-dev\n* pkg-config\n* libfuse-dev\n* libfude3-dev\n* libsubid-dev\* nautoconf\n* automake\n* libtool\nProceed? (y/n)\n' proceed
+read -p $'This script will install the following packages:\n* Singularity\n* GO\n* build-essential\n* libssl-dev\n* uuid-dev\n* libgpgme11-dev\n* squashfs-tools\n* libseccomp-dev\n* pkg-config\n* libfuse-dev\n* libfude3-dev\n* libsubid-dev\* nautoconf\n* automake\n* libtool\nProceed? (y/n)\n' proceed
 
 if [[ ${proceed,,} == 'n' ]]; then
 	echo "aborting installation"
@@ -22,7 +22,6 @@ elif [[ ${proceed,,} != 'y' ]]; then
 	exit
 fi
 # Check if software is already installed, if true prompt user a 'name conflict' occured and exit.
-# TODO once singularity is installed fix this section
 echo "checking if Singularity is installed..."
 if [[ $(singularity --version) ]]; then
 	echo "Name conflict has occured, exiting now"
