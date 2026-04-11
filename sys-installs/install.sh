@@ -33,20 +33,42 @@ sudo apt-get update && sudo apt-get install -y \
     libgpgme11-dev \
     squashfs-tools \
     libseccomp-dev \
-    pkg-config
-
+    pkg-config \
+    libfuse-dev \
+    libfuse3-dev \
+    libsubid-dev \
+    autoconf \
+    automake \
+    libtool
 #
 # --- GO INSTALLATION
 #
 
 # install go
-export VERSION=1.26.2 OS=linux ARCH=amd64 && \
+export VERSION=1.25.8 OS=linux ARCH=amd64 && \
     wget https://go.dev/dl/go$VERSION.$OS-$ARCH.tar.gz && \
     sudo tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz && \
     rm go$VERSION.$OS-$ARCH.tar.gz
 
 # setup environment for Go
 
-echo 'export GOPATH=${HOME}/go' >> ~/.bashrc && \
-    echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc && \
-    source ~/.bashrc
+export GOPATH=$HOME/go
+export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin
+
+#
+# --- SINGULARITY INSTALL
+#
+
+# download singularity git repo
+export VERSION=ce-4.4.1 && \
+    mkdir -p $GOPATH/src/github.com/sylabs && \
+    cd $GOPATH/src/github.com/sylabs && \
+    wget https://github.com/sylabs/singularity/releases/download/v4.4.1/singularity-${VERSION}.tar.gz && \
+    tar -xzf singularity-${VERSION}.tar.gz && \
+    cd ./singularity-${VERSION} && \
+    ./mconfig
+
+# build singularity
+cd /root/go/src/github.com/sylabs/singularity-ce-4.4.1/builddir && \
+    make && \
+    sudo make install
