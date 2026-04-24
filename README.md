@@ -24,8 +24,8 @@ Clone this repo via `HTML` to your desired path.
 
 Run the scripts in each directory to install content to your system.
 
-[Path to homefiles](./homefiles)
+[homefiles README](./homefiles/README.md)
 
-[Path to sys-installs](./sys-installs)
+[sys-installs README](./sys-installs/README.md)
 
-[Path to vim-config](./vim-config)
+[vim-config README](./vim-config/README.md)
