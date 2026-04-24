@@ -1,5 +1,5 @@
 echo "Copying .vimrc file"
-cp ./vim-config/.vimrc $HOME/.vimrc
+cp ./.vimrc $HOME/.vimrc
 
 echo "Checking Vundle"
 
