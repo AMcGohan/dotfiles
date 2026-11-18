@@ -1,7 +1,6 @@
 # navigation
 alias ..="cd .."
 alias c="clear"
-alias lambsauce="cd ~/lambsauce-cancook && onefetch ~/lambsauce-cancook"
 
 # updating
 alias update="sudo apt update && sudo upt upgrade -y"
